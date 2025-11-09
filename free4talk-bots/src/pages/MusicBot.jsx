@@ -8,76 +8,65 @@ import FAQ from '../components/music-bot/FAQ';
 
 export default function MusicBot() {
   return (
-    <div className="music-bot-page">
-      {/* Back Button */}
-      <Link to="/" className="back-link">
-        <ArrowLeft size={20} />
-        Back to All Bots
-      </Link>
+    <div className="bot-page">
+      <div className="container">
+        <Link to="/" className="back-link">
+          <ArrowLeft size={18} />
+          Back to All Bots
+        </Link>
 
-      {/* Hero Section */}
-      <section className="hero-section">
-        <div className="hero-content">
-          <div className="bot-icon">🎵</div>
+        {/* Hero Section */}
+        <section className="bot-hero">
+          <div className="bot-hero-icon">🎵</div>
           <h1>Music Bot</h1>
-          <p className="subtitle">AI-Powered Music Control for Free4Talk</p>
-          <p className="description">
-            Control YouTube Music with text commands. AI-powered autoplay and smart
-            suggestions. Built for the Free4Talk community with privacy in mind.
+          <p className="bot-hero-tagline">AI-Powered Music Control for Free4Talk</p>
+          <p className="bot-hero-description">
+            Control YouTube Music with text commands. AI-powered autoplay and smart suggestions. 
+            Built for the Free4Talk community with privacy in mind.
           </p>
 
-          {/* Download Buttons */}
-          <div className="hero-actions">
-            {/* ✅ CORRECT - Download link as <a> tag */}
-            <a 
-              href="downloads/music-bot-extension.zip"
-              download="music-bot-extension.zip"
-              className="btn btn-primary btn-lg"
-            >
-              <Download size={20} />
+          <div className="bot-hero-actions">
+            <a href="/downloads/music-bot-extension.zip" className="btn btn-primary btn-large">
+              <Download size={24} />
               Download Extension
             </a>
-            
-            {/* ✅ CORRECT - Internal navigation as <Link> */}
-            <a href="#installation" className="btn btn-secondary btn-lg">
-              <BookOpen size={20} />
+            <Link to="../pages/MusicBotInstall.jsx" className="btn btn-secondary btn-large">
+              <BookOpen size={24} />
               Installation Guide
-            </a>
+            </Link>
           </div>
 
-          {/* Stats */}
-          <div className="hero-stats">
+          <div className="bot-hero-stats">
             <div className="stat">
-              <Users size={24} />
-              <div>
-                <div className="stat-number">2,000+</div>
-                <div className="stat-label">Active Users</div>
-              </div>
+              <div className="stat-value">2,000+</div>
+              <div className="stat-label">Downloads</div>
             </div>
             <div className="stat">
-              <Star size={24} />
-              <div>
-                <div className="stat-number">4.8</div>
-                <div className="stat-label">Rating</div>
-              </div>
+              <div className="stat-value">4.9</div>
+              <div className="stat-label">Rating</div>
             </div>
             <div className="stat">
-              <Download size={24} />
-              <div>
-                <div className="stat-number">Free</div>
-                <div className="stat-label">Always</div>
-              </div>
+              <div className="stat-value">Free</div>
+              <div className="stat-label">Forever</div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Components */}
-      <Features />
-      <Commands />
-      <Installation />
-      <Pricing />
-      <FAQ />
+        {/* Features Section */}
+        <Features />
+
+        {/* Installation Section */}
+        <Installation />
+
+        {/* Commands Section */}
+        <Commands />
+
+        {/* Pricing Section */}
+        <Pricing />
+
+        {/* FAQ Section */}
+        <FAQ />
+      </div>
     </div>
   );
 }
