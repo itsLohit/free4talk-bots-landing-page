@@ -1,0 +1,74 @@
+import { Link, useLocation } from 'react-router-dom';
+import { Coffee, Menu, X } from 'lucide-react';
+import { useState } from 'react';
+
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === '/';
+  
+  const scrollToSection = (sectionId) => {
+    setIsOpen(false);
+    
+    // If not on home page, navigate first
+    if (!isHome) {
+      window.location.href = `/#${sectionId}`;
+      return;
+    }
+    
+    // If on home page, smooth scroll
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+  
+  return (
+    <nav className="navbar">
+      <div className="container">
+        <Link to="/" className="logo">
+          <span className="logo-icon">🌟</span>
+          GetSolace Bots
+        </Link>
+        
+        <button 
+          className="mobile-toggle"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
+        >
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+        
+        <div className={`nav-links ${isOpen ? 'open' : ''}`}>
+          <button 
+            onClick={() => scrollToSection('bots')}
+            className="nav-link-button"
+          >
+            Bots
+          </button>
+          <button 
+            onClick={() => scrollToSection('features')}
+            className="nav-link-button"
+          >
+            Features
+          </button>
+          <button 
+            onClick={() => scrollToSection('support')}
+            className="nav-link-button"
+          >
+            Support
+          </button>
+          <a 
+            href="https://buymeacoffee.com/yourname" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="btn btn-coffee"
+          >
+            <Coffee size={18} />
+            Support Us
+          </a>
+        </div>
+      </div>
+    </nav>
+  );
+}
