@@ -7,6 +7,14 @@ export default function Home() {
   const availableBots = bots.filter(b => b.status === 'Available');
   const comingSoonBots = bots.filter(b => b.status === 'Coming Soon');
   
+  // Function to scroll to bots section
+  const scrollToBots = () => {
+    const element = document.getElementById('bots');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+  
   return (
     <div className="home">
       {/* Hero Section */}
@@ -35,10 +43,14 @@ export default function Home() {
             </p>
             
             <div className="hero-buttons">
-              <a href="#bots" className="btn btn-primary btn-large">
+              {/* ✅ Changed from <a href="#bots"> to button with onClick */}
+              <button 
+                onClick={scrollToBots}
+                className="btn btn-primary btn-large"
+              >
                 <Download size={20} />
                 Explore Bots
-              </a>
+              </button>
               
               <a 
                 href="https://buymeacoffee.com/yourname" 
@@ -69,7 +81,6 @@ export default function Home() {
         </div>
       </section>
       
-      {/* Rest of the code remains same... */}
       {/* Available Bots */}
       <section className="bots-section" id="bots">
         <div className="container">
