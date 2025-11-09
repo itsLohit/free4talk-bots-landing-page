@@ -115,7 +115,7 @@ export default function MusicBotInstall() {
                   <a 
                     href="./downloads/music-bot-extension.zip"  // Changed from /downloads/ to ./downloads/
                     download
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors"
+                    className="btn btn-primary"
                   >
                     <Download className="w-5 h-5" />
                     Download Extension
