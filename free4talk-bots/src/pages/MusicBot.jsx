@@ -27,8 +27,8 @@ export default function MusicBot() {
           </p>
 
           <div className="bot-hero-actions">
-            <a href="../../public/downloads/music-bot-extension.zip" className="btn btn-primary btn-large">
-              <Download size={24} />
+            <a href={bot.downloadLink} download>
+              <Download size={20} />
               Download Extension
             </a>
             <Link to="../pages/MusicBotInstall.jsx" className="btn btn-secondary btn-large">
