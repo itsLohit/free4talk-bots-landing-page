@@ -27,12 +27,13 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/bots/music-bot" element={<MusicBot />} />
-          <Route path="/bots/music-bot/install" element={<InstallationPage />} /> {/* ✅ Add this route */}
+          <Route path="/bots/music-bot/install" element={<InstallationPage />} />
         </Routes>
         <Footer />
       </div>
     </Router>
   );
 }
+
 
 export default App;
