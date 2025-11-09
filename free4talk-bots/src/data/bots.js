@@ -20,7 +20,7 @@ export const bots = [
     category: 'Entertainment',
     tags: ['Music', 'AI', 'Command Control'],
     downloadLink: 'downloads/music-bot-extension.zip',
-    docsLink: '/bots/music-bot',
+    docsLink: '/music-bot',
     color: 'linear-gradient(135deg, #1e293b 0%, #334155 100%)'  // Professional dark slate
   },
   {

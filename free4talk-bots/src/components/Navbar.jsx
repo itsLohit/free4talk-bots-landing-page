@@ -11,10 +11,9 @@ export default function Navbar() {
   const scrollToSection = (sectionId) => {
     setIsOpen(false);
     
-    // If not on home page, navigate to home first, then scroll
+    // If not on home page, navigate first
     if (!isHome) {
       navigate('/');
-      // Wait for navigation to complete before scrolling
       setTimeout(() => {
         const element = document.getElementById(sectionId);
         if (element) {
@@ -24,7 +23,7 @@ export default function Navbar() {
       return;
     }
     
-    // If on home page, smooth scroll immediately
+    // If on home page, smooth scroll
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -39,6 +38,7 @@ export default function Navbar() {
             GetSolace Bots
           </Link>
 
+          {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden text-gray-300 hover:text-white"
@@ -47,7 +47,8 @@ export default function Navbar() {
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
 
-          <div className={`${isOpen ? 'block' : 'hidden'} md:flex items-center gap-6`}>
+          {/* Desktop menu - always visible on md+ screens */}
+          <div className="hidden md:flex items-center gap-6">
             <button
               onClick={() => scrollToSection('bots')}
               className="nav-link-button"
@@ -80,6 +81,42 @@ export default function Navbar() {
             </a>
           </div>
         </div>
+
+        {/* Mobile menu - only shows when isOpen is true */}
+        {isOpen && (
+          <div className="md:hidden mt-4 flex flex-col gap-4">
+            <button
+              onClick={() => scrollToSection('bots')}
+              className="nav-link-button text-left"
+            >
+              Bots
+            </button>
+            
+            <button
+              onClick={() => scrollToSection('features')}
+              className="nav-link-button text-left"
+            >
+              Features
+            </button>
+            
+            <button
+              onClick={() => scrollToSection('support')}
+              className="nav-link-button text-left"
+            >
+              Support
+            </button>
+
+            <a
+              href="https://buymeacoffee.com/yourname"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 rounded-lg transition-colors w-fit"
+            >
+              <Coffee className="w-4 h-4" />
+              Support Us
+            </a>
+          </div>
+        )}
       </div>
     </nav>
   );
