@@ -112,9 +112,12 @@ export default function MusicBotInstall() {
                 <div className="substep-content">
                   <h3>Download the extension</h3>
                   <p>Click the button below to download the ZIP file</p>
-                  <a href="/downloads/music-bot-extension.zip" className="btn btn-primary">
-                    <Download size={20} />
-                    Download Extension (Free)
+                  <a 
+                    href="downloads/music-bot-extension.zip"  // NO 'public/'
+                    download="music-bot-extension.zip"
+                    className="btn btn-primary"
+                  >
+                    Download Extension
                   </a>
                 </div>
               </div>

@@ -14,8 +14,8 @@ const plans = [
       'No ads'
     ],
     cta: 'Download Free',
-    link: '/downloads/music-bot-extension.zip',  // ✅ Just the path as a string
-    download: true,  // ✅ Add a flag to indicate it's a download
+    link: '/downloads/music-bot-extension.zip',
+    download: true,
     popular: false
   },
   {
@@ -32,6 +32,7 @@ const plans = [
     ],
     cta: 'Upgrade to Premium',
     link: 'https://buymeacoffee.com/yourname',
+    download: false,
     popular: true
   }
 ];
@@ -83,11 +84,13 @@ export default function Pricing() {
                 ))}
               </ul>
               
+              {/* ✅ FIXED - Added download attribute */}
               <a 
                 href={plan.link} 
                 className={`btn ${plan.popular ? 'btn-primary' : 'btn-secondary'} btn-block`}
                 target={plan.popular ? '_blank' : '_self'}
                 rel={plan.popular ? 'noopener noreferrer' : ''}
+                download={plan.download ? 'music-bot-extension.zip' : undefined}  // ✅ THIS WAS MISSING!
               >
                 {plan.cta}
               </a>
