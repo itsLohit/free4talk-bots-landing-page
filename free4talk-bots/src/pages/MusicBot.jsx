@@ -26,14 +26,18 @@ export default function MusicBot() {
           </p>
 
           <div className="bot-hero-actions">
-            <a href="/downloads/music-bot-extension.zip" className="btn btn-primary btn-large">
-              <Download size={24} />
-              Download Extension
-            </a>
-            <Link to="/bots/music-bot/install" className="btn btn-secondary btn-large">
+            <a 
+            href="downloads/music-bot-extension.zip"
+            download
+            className="download-btn"
+          >
+            <i className="fas fa-download"></i> Download Extension
+          </a>
+          
+            <a href="/bots/music-bot/install" className="btn btn-secondary btn-large">
               <BookOpen size={24} />
               Installation Guide
-            </Link>
+            </a>
           </div>
 
           <div className="bot-hero-stats">
