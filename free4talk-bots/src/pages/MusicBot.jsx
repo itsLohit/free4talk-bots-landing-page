@@ -6,6 +6,7 @@ import Commands from '../components/music-bot/Commands';
 import Pricing from '../components/music-bot/Pricing';
 import FAQ from '../components/music-bot/FAQ';
 
+
 export default function MusicBot() {
   return (
     <div className="bot-page">
@@ -26,7 +27,7 @@ export default function MusicBot() {
           </p>
 
           <div className="bot-hero-actions">
-            <a href="/downloads/music-bot-extension.zip" className="btn btn-primary btn-large">
+            <a href="../../public/downloads/music-bot-extension.zip" className="btn btn-primary btn-large">
               <Download size={24} />
               Download Extension
             </a>
