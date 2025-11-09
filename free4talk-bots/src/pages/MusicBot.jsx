@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Download, Star, Users, BookOpen } from 'lucide-react';
 import Features from '../components/music-bot/Features';
-import Installation from '../components/music-bot/Installation';
+import Installation from '../components/music-bot/Installations';
 import Commands from '../components/music-bot/Commands';
 import Pricing from '../components/music-bot/Pricing';
 import FAQ from '../components/music-bot/FAQ';
