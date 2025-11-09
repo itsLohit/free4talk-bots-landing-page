@@ -1,4 +1,4 @@
-import { HashRouter as Router, Routes, Route } from 'react-router-dom'; // ✅ Change to HashRouter
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
@@ -19,13 +19,13 @@ function ScrollToTop() {
 
 function App() {
   return (
-    <Router> {/* ✅ No basename needed with HashRouter */}
+    <Router>
       <ScrollToTop />
       <div className="app">
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/bots/music-bot" element={<MusicBot />} />
+          <Route path="/bots/music-bot" element={<MusicBot />} />  {/* ✅ This route must exist */}
           <Route path="/bots/music-bot/install" element={<MusicBotInstall />} />
         </Routes>
         <Footer />
