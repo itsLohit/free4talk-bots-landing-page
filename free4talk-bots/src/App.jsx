@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import MusicBot from './pages/MusicBot';
-import InstallationPage from './pages/InstallationPage'; // ✅ Add this import
+import InstallationPage from './pages/MusicBotInstall'; // ✅ Add this import
 import Footer from './components/Footer';
 
 // ScrollToTop Component
