@@ -1,5 +1,11 @@
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Download, BookOpen } from 'lucide-react';
+import { ArrowLeft, Download, Star, Users, BookOpen } from 'lucide-react';
+import Features from '../components/music-bot/Features';
+import Installation from '../components/music-bot/Installations';
+import Commands from '../components/music-bot/Commands';
+import Pricing from '../components/music-bot/Pricing';
+import FAQ from '../components/music-bot/FAQ';
+
 
 export default function MusicBot() {
   return (
@@ -21,15 +27,14 @@ export default function MusicBot() {
           </p>
 
           <div className="bot-hero-actions">
-            <a 
-              href="./downloads/music-bot-extension.zip"
-              download="music-bot-extension.zip"
-              className="btn btn-primary btn-large"
-            >
-              <Download size={24} />
-              Download Extension
-            </a>
             
+        <a 
+          href="downloads/music-bot-extension.zip"  // NO 'public/'
+          download="music-bot-extension.zip"
+          className="btn btn-primary btn-lg"
+        >
+          Download Extension
+        </a>
             <Link to="/bots/music-bot/install" className="btn btn-secondary btn-large">
               <BookOpen size={24} />
               Installation Guide
@@ -52,30 +57,20 @@ export default function MusicBot() {
           </div>
         </section>
 
-        {/* Test content to verify rendering */}
-        <section className="features" id="features">
-          <div className="section-header">
-            <h2>Key Features</h2>
-            <p>Everything you need to control YouTube Music in Free4Talk</p>
-          </div>
-          
-          <div className="features-grid">
-            <div className="feature-card">
-              <h3>🎵 Music Control</h3>
-              <p>Play, pause, skip, and control volume with simple text commands</p>
-            </div>
-            
-            <div className="feature-card">
-              <h3>🤖 AI Autoplay</h3>
-              <p>Smart suggestions based on your listening history</p>
-            </div>
-            
-            <div className="feature-card">
-              <h3>📋 Queue Management</h3>
-              <p>Add songs, view queue, and manage your playlist</p>
-            </div>
-          </div>
-        </section>
+        {/* Features Section */}
+        <Features />
+
+        {/* Installation Section */}
+        <Installation />
+
+        {/* Commands Section */}
+        <Commands />
+
+        {/* Pricing Section */}
+        <Pricing />
+
+        {/* FAQ Section */}
+        <FAQ />
       </div>
     </div>
   );
