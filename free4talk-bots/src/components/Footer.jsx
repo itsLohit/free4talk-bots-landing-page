@@ -64,7 +64,7 @@ export default function Footer() {
                 </a>
               </div>
               <a 
-                href="https://buymeacoffee.com/yourname" 
+                href="https://buymeacoffee.com/avataraang" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer-coffee-btn"

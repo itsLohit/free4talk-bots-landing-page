@@ -31,7 +31,7 @@ const plans = [
       'Priority support'
     ],
     cta: 'Upgrade to Premium',
-    link: 'https://buymeacoffee.com/yourname',
+    link: 'https://buymeacoffee.com/avataraang',
     download: false,
     popular: true
   }

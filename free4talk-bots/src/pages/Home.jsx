@@ -53,7 +53,7 @@ export default function Home() {
               </button>
               
               <a 
-                href="https://buymeacoffee.com/yourname" 
+                href="https://buymeacoffee.com/avataraang" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-secondary btn-large"
