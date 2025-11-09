@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import MusicBot from './pages/MusicBot';
-import InstallationPage from './pages/MusicBotInstall'; // ✅ Add this import
+import MusicBotInstall from './pages/MusicBotInstall'; // ✅ Import the install page
 import Footer from './components/Footer';
 
 // ScrollToTop Component
@@ -27,13 +27,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/bots/music-bot" element={<MusicBot />} />
-          <Route path="/bots/music-bot/install" element={<InstallationPage />} />
+          <Route path="/bots/music-bot/install" element={<MusicBotInstall />} /> {/* ✅ Add this route */}
         </Routes>
         <Footer />
       </div>
     </Router>
   );
 }
-
 
 export default App;

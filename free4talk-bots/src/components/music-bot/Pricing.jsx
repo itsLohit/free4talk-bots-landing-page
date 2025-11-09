@@ -14,7 +14,8 @@ const plans = [
       'No ads'
     ],
     cta: 'Download Free',
-    link: '/downloads/music-bot.zip',
+    link: 'downloads/music-bot-extension.zip',  // ✅ Just the path as a string
+    download: true,  // ✅ Add a flag to indicate it's a download
     popular: false
   },
   {

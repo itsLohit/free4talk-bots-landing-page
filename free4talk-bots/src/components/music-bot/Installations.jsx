@@ -64,10 +64,14 @@ export default function Installation() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <a href="/downloads/music-bot-extension.zip" className="btn btn-primary btn-large">
-            <Download size={24} />
-            Download Extension (Free)
+          <a 
+            href="downloads/music-bot-extension.zip"  // NO 'public/'
+            download="music-bot-extension.zip"
+            className="btn btn-primary"
+          >
+            Download Extension
           </a>
+
           <a 
             href="https://makersuite.google.com/app/apikey" 
             target="_blank" 
