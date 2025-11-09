@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Download, Star, Users, BookOpen } from 'lucide-react';
-import Features from '../components/music-bot/Features.jsx';
-import Installation from '../components/music-bot/Installation.jsx';
-import Commands from '../components/music-bot/Commands.jsx';
-import Pricing from '../components/music-bot/Pricing.jsx';
-import FAQ from '../components/music-bot/FAQ.jsx';
+import Features from '../components/music-bot/Features';
+import Installation from '../components/music-bot/Installation';
+import Commands from '../components/music-bot/Commands';
+import Pricing from '../components/music-bot/Pricing';
+import FAQ from '../components/music-bot/FAQ';
 
 export default function MusicBot() {
   return (
