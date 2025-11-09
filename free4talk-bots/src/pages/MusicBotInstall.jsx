@@ -113,12 +113,14 @@ export default function MusicBotInstall() {
                   <h3>Download the extension</h3>
                   <p>Click the button below to download the ZIP file</p>
                   <a 
-                    href="downloads/music-bot-extension.zip"  // NO 'public/'
-                    download="music-bot-extension.zip"
-                    className="btn btn-primary"
+                    href="./downloads/music-bot-extension.zip"  // Changed from /downloads/ to ./downloads/
+                    download
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors"
                   >
+                    <Download className="w-5 h-5" />
                     Download Extension
                   </a>
+
                 </div>
               </div>
 
