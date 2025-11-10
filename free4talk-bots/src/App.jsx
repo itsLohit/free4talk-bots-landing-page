@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import MusicBot from './pages/MusicBot';
 import MusicBotInstall from './pages/MusicBotInstall';
 import Footer from './components/Footer';
+import Chatbot from './pages/Chatbot';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -27,6 +28,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/bots/music-bot" element={<MusicBot />} />  {/* ✅ This route must exist */}
           <Route path="/bots/music-bot/install" element={<MusicBotInstall />} />
+          <Route path="/bots/chatbot" element={<Chatbot />} />
         </Routes>
         <Footer />
       </div>

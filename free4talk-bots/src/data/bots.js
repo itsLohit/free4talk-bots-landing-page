@@ -24,6 +24,31 @@ export const bots = [
     color: 'linear-gradient(135deg, #1e293b 0%, #334155 100%)'  // Professional dark slate
   },
   {
+  id: 'chatbot',
+  name: 'Free4Talk Chatbot',
+  tagline: 'Universal AI Chat Companion',
+  description: 'Powered by Gemini AI. Natural conversations, personality profiles, and smart context-aware responses.',
+  icon: '💬',
+  status: 'Available',
+  premium: true,
+  price: 'Free + Premium',
+  features: [
+    'Natural AI Chat',
+    'Personality Profiles',
+    'Person Facts Memory',
+    'Auto Reactions',
+    'Premium License System'
+  ],
+  downloads: 0,
+  rating: 5.0,
+  category: 'Productivity',
+  tags: ['AI', 'Chat', 'Gemini', 'Conversational'],
+  downloadLink: 'downloads/chatbot-extension.zip',
+  docsLink: '/bots/chatbot',
+  color: 'linear-gradient(135deg, #2d1e3a 0%, #3d2e4a 100%)' // Professional purple
+  },
+
+  {
     id: 'assistant-bot',
     name: 'AI Assistant',
     tagline: 'Your Smart Chat Assistant',
