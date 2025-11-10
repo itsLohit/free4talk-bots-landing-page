@@ -31,7 +31,7 @@ export const bots = [
   icon: '💬',
   status: 'Available',
   premium: true,
-  price: 'Free + Premium',
+  price: 'Free + $5/month',
   features: [
     'Natural AI Chat',
     'Personality Profiles',
