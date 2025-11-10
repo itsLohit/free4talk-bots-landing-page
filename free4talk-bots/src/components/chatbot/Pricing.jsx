@@ -43,19 +43,14 @@ const plans = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl font-bold text-white mb-4">Simple, Transparent Pricing</h2>
-          <p className="text-xl text-gray-400">Start free, upgrade when you need advanced features</p>
-        </motion.div>
+    <section className="pricing">
+      <div className="container">
+        <div className="section-header">
+          <h2>Simple, Transparent Pricing</h2>
+          <p>Start free, upgrade when you need advanced features</p>
+        </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="pricing-grid">
           {plans.map((plan, index) => (
             <motion.div
               key={index}
@@ -63,34 +58,26 @@ export default function Pricing() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
-              className={`relative bg-gradient-to-br ${
-                plan.popular 
-                  ? 'from-purple-900/40 to-blue-900/40 border-purple-500/50' 
-                  : 'from-gray-900/40 to-gray-800/40 border-gray-700/50'
-              } backdrop-blur-sm p-8 rounded-2xl border-2`}
+              className={`pricing-card ${plan.popular ? 'popular' : ''}`}
             >
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <span className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-1 rounded-full text-sm font-semibold flex items-center gap-1">
-                    <Sparkles size={14} />
-                    Most Popular
-                  </span>
+                <div className="popular-badge">
+                  <Sparkles size={14} />
+                  Most Popular
                 </div>
               )}
 
-              <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
-                <div className="flex items-baseline justify-center gap-1">
-                  <span className="text-5xl font-bold text-white">{plan.price}</span>
-                  <span className="text-gray-400">{plan.period}</span>
-                </div>
+              <h3>{plan.name}</h3>
+              <div className="pricing-price">
+                <span className="price">{plan.price}</span>
+                <span className="period">{plan.period}</span>
               </div>
 
-              <ul className="space-y-3 mb-8">
+              <ul className="pricing-features">
                 {plan.features.map((feature, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <Check className="text-purple-400 flex-shrink-0 mt-1" size={20} />
-                    <span className="text-gray-300">{feature}</span>
+                  <li key={i}>
+                    <Check size={20} />
+                    <span>{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -100,11 +87,7 @@ export default function Pricing() {
                 download={plan.download}
                 target={!plan.download ? '_blank' : undefined}
                 rel={!plan.download ? 'noopener noreferrer' : undefined}
-                className={`block w-full text-center py-3 rounded-lg font-semibold transition-all ${
-                  plan.popular
-                    ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:shadow-lg hover:shadow-purple-500/50'
-                    : 'bg-gray-700 text-white hover:bg-gray-600'
-                }`}
+                className={`btn ${plan.popular ? 'btn-primary' : 'btn-secondary'} btn-block btn-large`}
               >
                 {plan.cta}
               </a>

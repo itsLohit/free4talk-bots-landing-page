@@ -8,58 +8,53 @@ import FAQ from '../components/chatbot/FAQ';
 
 export default function Chatbot() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
-      {/* Hero Section */}
-      <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10" />
-        
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
-          <Link 
-            to="/" 
-            className="inline-flex items-center gap-2 text-gray-400 hover:text-white mb-8 transition-colors"
-          >
+    <div className="bot-page">
+      {/* Header */}
+      <section className="bot-hero">
+        <div className="container">
+          <Link to="/" className="back-link">
             <ArrowLeft size={20} />
             Back to Home
           </Link>
 
-          <div className="text-center">
-            <span className="text-6xl mb-6 block">💬</span>
-            <h1 className="text-5xl font-bold text-white mb-6">
-              Free4Talk Chatbot
-            </h1>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
-              Universal AI Chat Companion powered by Gemini AI. Natural conversations with personality profiles and smart context-aware responses.
+          <div className="bot-hero-content">
+            <div className="bot-hero-icon">💬</div>
+            <h1>Free4Talk Chatbot</h1>
+            <p className="bot-hero-tagline">Universal AI Chat Companion</p>
+            <p className="bot-hero-description">
+              Powered by Gemini AI. Natural conversations with personality profiles and smart context-aware responses. Built for the Free4Talk community with privacy in mind.
             </p>
-            
-            <div className="flex gap-4 justify-center mb-8">
-              <a 
-                href="downloads/chatbot-extension.zip" 
-                className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg hover:shadow-purple-500/50 transition-all flex items-center gap-2"
-              >
+
+            <div className="bot-hero-actions">
+              <a href="../downloads/chatbot-extension.zip" download className="btn btn-primary btn-large">
                 <Download size={20} />
                 Download Extension
               </a>
+              <Link to="/bots/chatbot/install" className="btn btn-secondary btn-large">
+                <BookOpen size={20} />
+                Installation Guide
+              </Link>
             </div>
 
-            <div className="flex gap-8 justify-center text-sm text-gray-400">
-              <div className="flex items-center gap-2">
-                <Star className="text-yellow-400" size={16} />
-                <span>5.0 Rating</span>
+            <div className="bot-hero-stats">
+              <div className="stat">
+                <div className="stat-icon"><Star size={28} /></div>
+                <div className="stat-label">5.0 Rating</div>
               </div>
-              <div className="flex items-center gap-2">
-                <Users size={16} />
-                <span>New Release</span>
+              <div className="stat">
+                <div className="stat-icon"><Users size={28} /></div>
+                <div className="stat-label">New Release</div>
               </div>
-              <div className="flex items-center gap-2">
-                <BookOpen size={16} />
-                <span>Full Documentation</span>
+              <div className="stat">
+                <div className="stat-icon"><BookOpen size={28} /></div>
+                <div className="stat-label">Full Docs</div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Feature Sections */}
+      {/* Components */}
       <Features />
       <Installation />
       <Commands />

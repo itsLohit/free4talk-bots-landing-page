@@ -46,23 +46,15 @@ function FAQItem({ faq, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.05 }}
-      className="border border-purple-500/20 rounded-lg overflow-hidden"
+      className="faq-item"
     >
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-full p-6 text-left flex items-center justify-between bg-gray-900/30 hover:bg-gray-900/50 transition-colors"
-      >
-        <span className="text-lg font-semibold text-white pr-8">{faq.question}</span>
-        <ChevronDown
-          className={`text-purple-400 flex-shrink-0 transition-transform ${
-            isOpen ? 'rotate-180' : ''
-          }`}
-          size={24}
-        />
+      <button onClick={() => setIsOpen(!isOpen)} className="faq-question">
+        <span>{faq.question}</span>
+        <ChevronDown className={`faq-icon ${isOpen ? 'open' : ''}`} size={24} />
       </button>
       {isOpen && (
-        <div className="p-6 bg-gray-900/20 border-t border-purple-500/20">
-          <p className="text-gray-300 leading-relaxed">{faq.answer}</p>
+        <div className="faq-answer">
+          <p>{faq.answer}</p>
         </div>
       )}
     </motion.div>
@@ -71,19 +63,14 @@ function FAQItem({ faq, index }) {
 
 export default function FAQ() {
   return (
-    <section id="faq" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-800/30">
-      <div className="max-w-3xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-4xl font-bold text-white mb-4">Frequently Asked Questions</h2>
-          <p className="text-xl text-gray-400">Everything you need to know about the Chatbot</p>
-        </motion.div>
+    <section className="faq">
+      <div className="container">
+        <div className="section-header">
+          <h2>Frequently Asked Questions</h2>
+          <p>Everything you need to know about the Chatbot</p>
+        </div>
 
-        <div className="space-y-4">
+        <div className="faq-list">
           {faqs.map((faq, index) => (
             <FAQItem key={index} faq={faq} index={index} />
           ))}
