@@ -292,7 +292,7 @@ export default function MusicBotInstall() {
             <Link to="/bots/music-bot" className="btn btn-secondary btn-large">
               Back to Music Bot
             </Link>
-            <a href="mailto:contact@getsolace.in" className="btn btn-primary btn-large">
+            <a href="mailto:getsolace.india@gmail.com" className="btn btn-primary btn-large">
               Contact Support
             </a>
           </div>

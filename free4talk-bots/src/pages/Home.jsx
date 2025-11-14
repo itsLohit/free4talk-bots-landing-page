@@ -1,11 +1,16 @@
 import { motion } from 'framer-motion';
-import { Coffee, Sparkles, Download, Zap } from 'lucide-react';
+import { Coffee, Sparkles, Download, Zap, Users, Star, Rocket } from 'lucide-react';
 import BotCard from '../components/BotCard';
 import { bots } from '../data/bots';
 
 export default function Home() {
   const availableBots = bots.filter(b => b.status === 'Available');
   const comingSoonBots = bots.filter(b => b.status === 'Coming Soon');
+  
+  // Calculate real stats from bots data
+  const totalDownloads = bots.reduce((sum, bot) => sum + (bot.downloads || 0), 0);
+  const averageRating = (bots.reduce((sum, bot) => sum + (bot.rating || 0), 0) / bots.filter(b => b.rating > 0).length).toFixed(1);
+  const availableBotsCount = availableBots.length;
   
   // Function to scroll to bots section
   const scrollToBots = () => {
@@ -39,11 +44,10 @@ export default function Home() {
             
             <p className="hero-description">
               Collection of AI-powered bots to enhance your Free4Talk rooms. 
-              Music control, moderation, games, and more. Built by GetSolace.
+              Music control, intelligent chat, moderation, and more. Built by GetSolace.
             </p>
             
             <div className="hero-buttons">
-              {/* ✅ Changed from <a href="#bots"> to button with onClick */}
               <button 
                 onClick={scrollToBots}
                 className="btn btn-primary btn-large"
@@ -65,15 +69,18 @@ export default function Home() {
             
             <div className="hero-stats">
               <div className="stat">
-                <div className="stat-value">{bots.length}</div>
-                <div className="stat-label">Available Bots</div>
+                <Rocket size={24} className="stat-icon" />
+                <div className="stat-value">{availableBotsCount}</div>
+                <div className="stat-label">Active Bots</div>
               </div>
               <div className="stat">
-                <div className="stat-value">2,000+</div>
-                <div className="stat-label">Active Users</div>
+                <Users size={24} className="stat-icon" />
+                <div className="stat-value">{totalDownloads.toLocaleString()}+</div>
+                <div className="stat-label">Total Downloads</div>
               </div>
               <div className="stat">
-                <div className="stat-value">4.9/5</div>
+                <Star size={24} className="stat-icon" />
+                <div className="stat-value">{averageRating}★</div>
                 <div className="stat-label">Average Rating</div>
               </div>
             </div>
@@ -147,7 +154,7 @@ export default function Home() {
             >
               <Zap size={32} />
               <h3>Easy to Use</h3>
-              <p>Simple installation and natural text commands</p>
+              <p>Simple installation with natural language commands. No coding required.</p>
             </motion.div>
             
             <motion.div
@@ -159,7 +166,7 @@ export default function Home() {
             >
               <Sparkles size={32} />
               <h3>AI-Powered</h3>
-              <p>Advanced AI for smart suggestions and automation</p>
+              <p>Powered by Google Gemini for smart suggestions and intelligent automation.</p>
             </motion.div>
             
             <motion.div
@@ -171,7 +178,7 @@ export default function Home() {
             >
               <Coffee size={32} />
               <h3>Community Driven</h3>
-              <p>Built by Free4Talk users, for Free4Talk users</p>
+              <p>Built by Free4Talk users, for Free4Talk users. Your feedback shapes development.</p>
             </motion.div>
           </div>
         </div>
@@ -190,10 +197,10 @@ export default function Home() {
             <h2>Love Our Bots?</h2>
             <p>
               Support GetSolace by buying us a coffee! Your support helps us 
-              create more amazing bots and keep everything free for the community.
+              create more amazing bots, add new features, and keep everything accessible for the community.
             </p>
             <a 
-              href="https://buymeacoffee.com/yourname" 
+              href="https://buymeacoffee.com/avataraang" 
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-primary btn-large"
@@ -202,7 +209,7 @@ export default function Home() {
               Buy Me a Coffee
             </a>
             <p className="support-note">
-              ☕ Even a small coffee helps us keep building!
+              ☕ Even a small coffee helps us keep building amazing bots!
             </p>
           </motion.div>
         </div>

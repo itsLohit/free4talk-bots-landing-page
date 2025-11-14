@@ -16,7 +16,7 @@ const plans = [
       'No ads'
     ],
     cta: 'Download Free',
-    link: '../downloads/chatbot-extension.zip',
+    link: './downloads/chatbot-extension.zip',
     download: true,
     popular: false
   },
@@ -54,29 +54,33 @@ export default function Pricing() {
           {plans.map((plan, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.2 }}
+              transition={{ delay: index * 0.15, duration: 0.5 }}
               className={`pricing-card ${plan.popular ? 'popular' : ''}`}
             >
               {plan.popular && (
                 <div className="popular-badge">
                   <Sparkles size={14} />
-                  Most Popular
+                  MOST POPULAR
                 </div>
               )}
 
-              <h3>{plan.name}</h3>
-              <div className="pricing-price">
-                <span className="price">{plan.price}</span>
-                <span className="period">{plan.period}</span>
+              <div className="pricing-card-header">
+                <h3>{plan.name}</h3>
+                <div className="price-wrapper">
+                  <span className="price-amount">{plan.price}</span>
+                  <span className="price-period">{plan.period}</span>
+                </div>
               </div>
 
               <ul className="pricing-features">
                 {plan.features.map((feature, i) => (
                   <li key={i}>
-                    <Check size={20} />
+                    <div className="check-icon">
+                      <Check size={16} />
+                    </div>
                     <span>{feature}</span>
                   </li>
                 ))}
@@ -87,7 +91,7 @@ export default function Pricing() {
                 download={plan.download}
                 target={!plan.download ? '_blank' : undefined}
                 rel={!plan.download ? 'noopener noreferrer' : undefined}
-                className={`btn ${plan.popular ? 'btn-primary' : 'btn-secondary'} btn-block btn-large`}
+                className={`btn ${plan.popular ? 'btn-primary' : 'btn-secondary'} btn-block btn-large pricing-cta`}
               >
                 {plan.cta}
               </a>

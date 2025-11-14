@@ -55,42 +55,44 @@ export default function Pricing() {
           {plans.map((plan, index) => (
             <motion.div
               key={index}
-              className={`pricing-card ${plan.popular ? 'popular' : ''}`}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.2 }}
-              whileHover={{ y: -10 }}
+              transition={{ delay: index * 0.15, duration: 0.5 }}
+              className={`pricing-card ${plan.popular ? 'popular' : ''}`}
             >
               {plan.popular && (
                 <div className="popular-badge">
                   <Sparkles size={14} />
-                  Most Popular
+                  MOST POPULAR
                 </div>
               )}
-              
-              <h3>{plan.name}</h3>
-              <div className="price">
-                <span className="amount">{plan.price}</span>
-                <span className="period">{plan.period}</span>
+
+              <div className="pricing-card-header">
+                <h3>{plan.name}</h3>
+                <div className="price-wrapper">
+                  <span className="price-amount">{plan.price}</span>
+                  <span className="price-period">{plan.period}</span>
+                </div>
               </div>
-              
-              <ul className="features-list">
+
+              <ul className="pricing-features">
                 {plan.features.map((feature, i) => (
                   <li key={i}>
-                    <Check size={18} />
-                    {feature}
+                    <div className="check-icon">
+                      <Check size={16} />
+                    </div>
+                    <span>{feature}</span>
                   </li>
                 ))}
               </ul>
-              
-              {/* ✅ FIXED - Added download attribute */}
-              <a 
-                href={plan.link} 
-                className={`btn ${plan.popular ? 'btn-primary' : 'btn-secondary'} btn-block`}
-                target={plan.popular ? '_blank' : '_self'}
-                rel={plan.popular ? 'noopener noreferrer' : ''}
-                download={plan.download ? 'music-bot-extension.zip' : undefined}  // ✅ THIS WAS MISSING!
+
+              <a
+                href={plan.link}
+                download={plan.download ? 'music-bot-extension.zip' : undefined}
+                target={!plan.download ? '_blank' : undefined}
+                rel={!plan.download ? 'noopener noreferrer' : undefined}
+                className={`btn ${plan.popular ? 'btn-primary' : 'btn-secondary'} btn-block btn-large pricing-cta`}
               >
                 {plan.cta}
               </a>

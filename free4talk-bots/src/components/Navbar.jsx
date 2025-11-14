@@ -10,7 +10,6 @@ export default function Navbar() {
 
   const scrollToSection = (sectionId) => {
     setIsOpen(false);
-    
     if (!isHome) {
       navigate('/');
       setTimeout(() => {
@@ -21,7 +20,6 @@ export default function Navbar() {
       }, 100);
       return;
     }
-    
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -32,7 +30,12 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="container">
         <Link to="/" className="logo">
-          GetSolace Bots
+          <img 
+            src="/logo/getsolace-icon.png" 
+            alt="GetSolace Logo" 
+            className="logo-image"
+          />
+          <span>GetSolace Bots</span>
         </Link>
 
         <button
@@ -50,23 +53,20 @@ export default function Navbar() {
           >
             Bots
           </button>
-          
           <button
             onClick={() => scrollToSection('features')}
             className="nav-link-button"
           >
             Features
           </button>
-          
           <button
             onClick={() => scrollToSection('support')}
             className="nav-link-button"
           >
             Support
           </button>
-
-          <a
-            href="https://buymeacoffee.com/avataraang"
+          <a 
+            href="https://buymeacoffee.com/avataraang" 
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-coffee"

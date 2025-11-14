@@ -15,8 +15,8 @@ export const bots = [
       'Queue Management',
       '2 Devices'
     ],
-    downloads: 2000,
-    rating: 4.9,
+    downloads: 50,
+    rating: 5,
     category: 'Entertainment',
     tags: ['Music', 'AI', 'Command Control'],
     downloadLink: 'downloads/music-bot-extension.zip',
@@ -104,7 +104,7 @@ export const bots = [
     icon: '🛡️',
     status: 'Coming Soon',
     premium: true,
-    price: '₹199/month',
+    price: '$2/month',
     features: [
       'Auto-Moderation',
       'Spam Filter',

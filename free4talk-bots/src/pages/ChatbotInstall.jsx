@@ -1,449 +1,311 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Download, Key, Chrome, CheckCircle, AlertTriangle, Settings, MessageCircle, Users, Database, Sparkles } from 'lucide-react';
+import { ArrowLeft, Download, Key, Chrome, CheckCircle, AlertTriangle, Settings, MessageCircle } from 'lucide-react';
 
 export default function ChatbotInstall() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
-      {/* Header */}
-      <div className="relative overflow-hidden border-b border-purple-500/20">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10" />
-        
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <Link 
-            to="/bots/chatbot" 
-            className="inline-flex items-center gap-2 text-gray-400 hover:text-white mb-6 transition-colors"
-          >
-            <ArrowLeft size={20} />
-            Back to Chatbot
-          </Link>
+    <div className="install-page">
+      <div className="container">
+        {/* Back Link */}
+        <Link to="/bots/chatbot" className="back-link">
+          <ArrowLeft size={18} />
+          Back to Chatbot
+        </Link>
 
-          <div className="text-center">
-            <span className="text-5xl mb-4 block">💬</span>
-            <h1 className="text-4xl font-bold text-white mb-4">
-              Free4Talk Chatbot Installation Guide
-            </h1>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-              Follow these simple steps to install and configure the Chatbot extension. 
-              No coding required - just copy, paste, and you're ready to go!
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Important Notice */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Hero Section */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          className="install-hero"
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-6 flex items-start gap-4"
         >
-          <AlertTriangle className="text-yellow-400 flex-shrink-0 mt-1" size={24} />
+          <div className="install-hero-badge">
+            <CheckCircle size={16} />
+            <span>Step-by-Step Guide</span>
+          </div>
+          <h1>Chatbot Installation</h1>
+          <p className="install-hero-description">
+            Follow these simple steps to install and configure the Chatbot extension. 
+            No coding required - just copy, paste, and you're ready to go!
+          </p>
+        </motion.div>
+
+        {/* PC Only Warning */}
+        <motion.div
+          className="warning-box"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <AlertTriangle size={24} />
           <div>
-            <h3 className="text-yellow-300 font-semibold mb-2">Desktop Only</h3>
-            <p className="text-gray-300">
-              This extension only works on desktop computers (Windows, macOS, Linux). 
-              Mobile devices and tablets cannot install Chrome extensions.
-            </p>
+            <h4>PC Only</h4>
+            <p>This extension only works on desktop computers (Windows, macOS, Linux). Mobile devices and tablets cannot install Chrome extensions.</p>
           </div>
         </motion.div>
-      </div>
 
-      {/* Step 1: Enable Developer Mode */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
+        {/* Step 1: Enable Developer Mode */}
+        <motion.section
+          className="install-step"
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <div className="flex items-center gap-4 mb-6">
-            <div className="bg-purple-500/20 w-12 h-12 rounded-full flex items-center justify-center">
-              <span className="text-purple-300 font-bold text-xl">1</span>
-            </div>
+          <div className="step-header">
+            <div className="step-number">1</div>
             <div>
-              <h2 className="text-2xl font-bold text-white flex items-center gap-2">
-                <Chrome className="text-purple-400" size={28} />
-                Enable Developer Mode
-              </h2>
-              <p className="text-gray-400">Developer mode lets you load extensions from a folder</p>
+              <h2>Enable Chrome Developer Mode</h2>
+              <p>Developer mode lets you load extensions from a folder</p>
             </div>
           </div>
 
-          <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl border border-purple-500/20 p-8 space-y-4">
-            <div className="flex items-start gap-3">
-              <CheckCircle className="text-purple-400 flex-shrink-0 mt-1" size={20} />
+          <div className="step-content">
+            <div className="step-instructions">
+              <div className="instruction-item">
+                <Chrome size={20} />
+                <p>Open Chrome and navigate to <code>chrome://extensions</code></p>
+              </div>
+              <div className="instruction-item">
+                <Settings size={20} />
+                <p>Turn on <strong>Developer mode</strong> in the top-right corner</p>
+              </div>
+              <div className="instruction-item">
+                <CheckCircle size={20} />
+                <p>Confirm the toggle shows as enabled</p>
+              </div>
+            </div>
+
+            <div className="info-box">
+              <h4>💡 Why developer mode?</h4>
+              <p>Chrome requires developer mode to load unpacked (folder) extensions that are not from the Chrome Web Store.</p>
+            </div>
+
+            <div className="info-box info-box-alt">
+              <h4>Why not Chrome Web Store?</h4>
+              <ul>
+                <li><strong>Cost & Approval:</strong> $5 developer fee + unpredictable review process (weeks/months) with no approval guarantee</li>
+                <li><strong>Policy & Updates:</strong> Policies change anytime, risking removal. Every update needs re-approval</li>
+                <li><strong>User Control:</strong> Direct installation = full control over updates, no data collection, better privacy</li>
+              </ul>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* Step 2: Install Extension */}
+        <motion.section
+          className="install-step"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <div className="step-header">
+            <div className="step-number">2</div>
+            <div>
+              <h2>Install the Extension</h2>
+              <p>Download, extract, and load the extension into Chrome</p>
+            </div>
+          </div>
+
+          <div className="step-content">
+            <div className="substeps">
+              <div className="substep">
+                <div className="substep-number">1</div>
+                <div className="substep-content">
+                  <h3>Download the extension</h3>
+                  <p>Click the button below to download the ZIP file</p>
+                  <a 
+                    href="./downloads/chatbot-extension.zip"
+                    download
+                    className="btn btn-primary"
+                  >
+                    <Download className="w-5 h-5" />
+                    Download Extension
+                  </a>
+                </div>
+              </div>
+
+              <div className="substep">
+                <div className="substep-number">2</div>
+                <div className="substep-content">
+                  <h3>Extract the ZIP</h3>
+                  <p>Right-click the ZIP file and choose "Extract" to create a folder. You will load this folder in Chrome.</p>
+                </div>
+              </div>
+
+              <div className="substep">
+                <div className="substep-number">3</div>
+                <div className="substep-content">
+                  <h3>Load the extension in Chrome</h3>
+                  <ul>
+                    <li>Open Chrome and go to <code>chrome://extensions</code></li>
+                    <li>Turn on <strong>Developer mode</strong> (top-right)</li>
+                    <li>Click <strong>Load unpacked</strong> and select the extracted folder</li>
+                    <li>Reload the Free4Talk room page to activate the extension</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="tip-box">
+              <h4>💡 Tip</h4>
+              <p>Pin the extension to your toolbar for quick access by clicking the puzzle icon and pinning it.</p>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* Step 3: Get API Key */}
+        <motion.section
+          className="install-step"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <div className="step-header">
+            <div className="step-number">3</div>
+            <div>
+              <h2>Set Up Your API Key</h2>
+              <p>We recommend using Google Gemini as a free option</p>
+            </div>
+          </div>
+
+          <div className="step-content">
+            <div className="api-options">
+              <div className="api-option recommended">
+                <div className="api-option-header">
+                  <h3>Google Gemini</h3>
+                  <span className="recommended-badge">Supported</span>
+                </div>
+                <ol>
+                  <li>Go to <a href="https://makersuite.google.com/app/apikey" target="_blank" rel="noopener noreferrer">Google AI Studio</a></li>
+                  <li>Create or sign in with your Google account</li>
+                  <li>Generate an API key and copy it</li>
+                  <li>In the extension popup, paste your API key</li>
+                </ol>
+              </div>
+            </div>
+
+            <div className="warning-box warning-box-small">
+              <Key size={20} />
+              <p><strong>Keep your key safe:</strong> Never share your API key publicly. Treat it like a password.</p>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* Step 4: Configure */}
+        <motion.section
+          className="install-step"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <div className="step-header">
+            <div className="step-number">4</div>
+            <div>
+              <h2>Configure the Extension</h2>
+              <p>Open the extension popup and complete these fields</p>
+            </div>
+          </div>
+
+          <div className="step-content">
+            <div className="config-items">
+              <div className="config-item">
+                <h4>1) API Provider & Key</h4>
+                <p>Choose Gemini, then paste your API key</p>
+              </div>
+              <div className="config-item">
+                <h4>2) Bot Username</h4>
+                <p>Enter your Free4Talk username (the bot will respond using this identity)</p>
+              </div>
+              <div className="config-item">
+                <h4>3) Friends List (Optional)</h4>
+                <p>Add usernames of friends the bot knows about</p>
+              </div>
+              <div className="config-item">
+                <h4>4) Facts & Persona (Optional)</h4>
+                <p>Add custom facts about yourself and define the bot's personality</p>
+              </div>
+              <div className="config-item">
+                <h4>5) Authorized Users (Optional)</h4>
+                <p>Add usernames of people who can interact with the bot. Leave empty to allow everyone</p>
+              </div>
+            </div>
+
+            <div className="success-box">
+              <MessageCircle size={20} />
               <div>
-                <p className="text-gray-300 mb-2">Open Chrome and navigate to</p>
-                <code className="bg-gray-800 text-purple-300 px-4 py-2 rounded text-sm">
-                  chrome://extensions
-                </code>
+                <h4>Ready to go!</h4>
+                <p>Head to a Free4Talk room and start chatting with your AI companion</p>
               </div>
             </div>
-
-            <div className="flex items-start gap-3">
-              <CheckCircle className="text-purple-400 flex-shrink-0 mt-1" size={20} />
-              <p className="text-gray-300">
-                Turn on <strong className="text-white">Developer mode</strong> in the top-right corner
-              </p>
-            </div>
-
-            <div className="flex items-start gap-3">
-              <CheckCircle className="text-purple-400 flex-shrink-0 mt-1" size={20} />
-              <p className="text-gray-300">Confirm the toggle shows as enabled</p>
-            </div>
-
-            <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-4 mt-4">
-              <p className="text-blue-300 text-sm">
-                💡 Chrome requires developer mode to load unpacked (folder) extensions that are not from the Chrome Web Store.
-              </p>
-            </div>
           </div>
-        </motion.div>
-      </section>
+        </motion.section>
 
-      {/* Step 2: Download & Load Extension */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
+        {/* Troubleshooting */}
+        <motion.section
+          className="troubleshooting"
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <div className="flex items-center gap-4 mb-6">
-            <div className="bg-purple-500/20 w-12 h-12 rounded-full flex items-center justify-center">
-              <span className="text-purple-300 font-bold text-xl">2</span>
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold text-white flex items-center gap-2">
-                <Download className="text-purple-400" size={28} />
-                Download & Load Extension
-              </h2>
-              <p className="text-gray-400">Download, extract, and load the extension into Chrome</p>
-            </div>
-          </div>
+          <h2>Troubleshooting</h2>
+          <p>Common problems and how to fix them</p>
 
-          <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl border border-purple-500/20 p-8 space-y-6">
-            <div className="flex items-start gap-3">
-              <CheckCircle className="text-purple-400 flex-shrink-0 mt-1" size={20} />
-              <div className="flex-1">
-                <p className="text-gray-300 mb-3">Click the button below to download the ZIP file</p>
-                <a
-                  href="../downloads/chatbot-extension.zip"
-                  download
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg hover:shadow-purple-500/50 transition-all"
-                >
-                  <Download size={20} />
-                  Download Chatbot Extension
-                </a>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-3">
-              <CheckCircle className="text-purple-400 flex-shrink-0 mt-1" size={20} />
-              <p className="text-gray-300">
-                Right-click the ZIP file and choose "Extract" to create a folder. 
-                You will load this folder in Chrome.
-              </p>
-            </div>
-
-            <div className="flex items-start gap-3">
-              <CheckCircle className="text-purple-400 flex-shrink-0 mt-1" size={20} />
-              <div>
-                <p className="text-gray-300 mb-2">Go back to</p>
-                <code className="bg-gray-800 text-purple-300 px-4 py-2 rounded text-sm">
-                  chrome://extensions
-                </code>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-3">
-              <CheckCircle className="text-purple-400 flex-shrink-0 mt-1" size={20} />
-              <p className="text-gray-300">
-                Click <strong className="text-white">"Load unpacked"</strong> and select the extracted folder
-              </p>
-            </div>
-
-            <div className="flex items-start gap-3">
-              <CheckCircle className="text-purple-400 flex-shrink-0 mt-1" size={20} />
-              <p className="text-gray-300">
-                Pin the extension to your toolbar for quick access by clicking the puzzle icon and pinning it.
-              </p>
-            </div>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* Step 3: Get Gemini API Key */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <div className="flex items-center gap-4 mb-6">
-            <div className="bg-purple-500/20 w-12 h-12 rounded-full flex items-center justify-center">
-              <span className="text-purple-300 font-bold text-xl">3</span>
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold text-white flex items-center gap-2">
-                <Key className="text-purple-400" size={28} />
-                Get Your Gemini API Key
-              </h2>
-              <p className="text-gray-400">We recommend using Google Gemini as a free option</p>
-            </div>
-          </div>
-
-          <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl border border-purple-500/20 p-8 space-y-6">
-            <div className="flex items-start gap-3">
-              <CheckCircle className="text-purple-400 flex-shrink-0 mt-1" size={20} />
-              <div className="flex-1">
-                <p className="text-gray-300 mb-3">Visit Google AI Studio to get your free API key</p>
-                <a
-                  href="https://aistudio.google.com/app/apikey"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-gray-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-600 transition-all"
-                >
-                  <Key size={20} />
-                  Get Free Gemini API Key
-                </a>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-3">
-              <CheckCircle className="text-purple-400 flex-shrink-0 mt-1" size={20} />
-              <p className="text-gray-300">Sign in with your Google account</p>
-            </div>
-
-            <div className="flex items-start gap-3">
-              <CheckCircle className="text-purple-400 flex-shrink-0 mt-1" size={20} />
-              <p className="text-gray-300">Click "Create API Key" and copy it</p>
-            </div>
-
-            <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-4 mt-4">
-              <p className="text-red-300 text-sm">
-                🔒 <strong>Keep your key safe:</strong> Never share your API key publicly. Treat it like a password.
-              </p>
-            </div>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* Step 4: Configure Bot Settings */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <div className="flex items-center gap-4 mb-6">
-            <div className="bg-purple-500/20 w-12 h-12 rounded-full flex items-center justify-center">
-              <span className="text-purple-300 font-bold text-xl">4</span>
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold text-white flex items-center gap-2">
-                <Settings className="text-purple-400" size={28} />
-                Configure Bot Settings
-              </h2>
-              <p className="text-gray-400">Open the extension popup and complete these fields</p>
-            </div>
-          </div>
-
-          <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl border border-purple-500/20 p-8 space-y-6">
-            <div className="space-y-4">
-              <div className="bg-gray-800/50 p-4 rounded-lg">
-                <div className="flex items-center gap-2 mb-2">
-                  <Key className="text-purple-400" size={18} />
-                  <h4 className="text-white font-semibold">Gemini API Key</h4>
-                </div>
-                <p className="text-gray-400 text-sm">Paste your API key from Google AI Studio</p>
-              </div>
-
-              <div className="bg-gray-800/50 p-4 rounded-lg">
-                <div className="flex items-center gap-2 mb-2">
-                  <MessageCircle className="text-purple-400" size={18} />
-                  <h4 className="text-white font-semibold">Bot Username</h4>
-                </div>
-                <p className="text-gray-400 text-sm">Choose a display name for your bot (e.g., "ChatBot", "Assistant")</p>
-              </div>
-
-              <div className="bg-gray-800/50 p-4 rounded-lg">
-                <div className="flex items-center gap-2 mb-2">
-                  <Sparkles className="text-purple-400" size={18} />
-                  <h4 className="text-white font-semibold">Bot Persona Prompt</h4>
-                </div>
-                <p className="text-gray-400 text-sm">
-                  Define your bot's personality (e.g., "You are a friendly, helpful assistant" or "You are a witty companion")
-                </p>
-              </div>
-
-              <div className="bg-gray-800/50 p-4 rounded-lg">
-                <div className="flex items-center gap-2 mb-2">
-                  <CheckCircle className="text-purple-400" size={18} />
-                  <h4 className="text-white font-semibold">Behavior Settings</h4>
-                </div>
-                <ul className="text-gray-400 text-sm space-y-1 ml-4">
-                  <li>• Toggle "Reply to Private Messages" if you want DM responses</li>
-                  <li>• Enable "Auto React to Messages" for emoji reactions</li>
-                  <li>• Set character limit to control response length</li>
-                  <li>• Check "Ignore My Own Messages" to prevent self-replies</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-4 mt-6">
-              <h4 className="text-blue-300 font-semibold mb-2 flex items-center gap-2">
-                <Sparkles size={18} />
-                Premium Features (Optional)
-              </h4>
-              <div className="space-y-2 text-blue-200 text-sm ml-4">
-                <div className="flex items-start gap-2">
-                  <Users className="flex-shrink-0 mt-0.5" size={16} />
-                  <span><strong>Friends List:</strong> Add usernames who get special playful responses</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <Database className="flex-shrink-0 mt-0.5" size={16} />
-                  <span><strong>Person Facts:</strong> Store facts about users (e.g., "John loves pizza")</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <Sparkles className="flex-shrink-0 mt-0.5" size={16} />
-                  <span><strong>AI Personality Generator:</strong> Let AI create creative persona prompts</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* Step 5: Start Using */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <div className="flex items-center gap-4 mb-6">
-            <div className="bg-purple-500/20 w-12 h-12 rounded-full flex items-center justify-center">
-              <span className="text-purple-300 font-bold text-xl">5</span>
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold text-white flex items-center gap-2">
-                <MessageCircle className="text-purple-400" size={28} />
-                Start Chatting!
-              </h2>
-              <p className="text-gray-400">Head to Free4Talk and test your bot</p>
-            </div>
-          </div>
-
-          <div className="bg-gradient-to-br from-purple-900/30 to-blue-900/30 backdrop-blur-sm rounded-xl border border-purple-500/30 p-8">
-            <div className="space-y-4 text-gray-300">
-              <p className="flex items-start gap-3">
-                <CheckCircle className="text-purple-400 flex-shrink-0 mt-1" size={20} />
-                Open Free4Talk in a new tab
-              </p>
-              <p className="flex items-start gap-3">
-                <CheckCircle className="text-purple-400 flex-shrink-0 mt-1" size={20} />
-                Join a room or start chatting
-              </p>
-              <p className="flex items-start gap-3">
-                <CheckCircle className="text-purple-400 flex-shrink-0 mt-1" size={20} />
-                Your bot will automatically analyze messages and respond when appropriate
-              </p>
-              <p className="flex items-start gap-3">
-                <CheckCircle className="text-purple-400 flex-shrink-0 mt-1" size={20} />
-                Watch it naturally participate in conversations!
-              </p>
-            </div>
-
-            <div className="mt-6 bg-green-500/10 border border-green-500/30 rounded-lg p-4">
-              <p className="text-green-300 text-sm">
-                ✨ <strong>Pro Tip:</strong> The bot uses AI to decide when to respond. It won't reply to every message - 
-                only when it has something relevant to add, just like a real person!
-              </p>
-            </div>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* Troubleshooting */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <div className="text-center mb-8">
-            <AlertTriangle className="mx-auto text-yellow-400 mb-4" size={40} />
-            <h2 className="text-3xl font-bold text-white mb-2">Troubleshooting</h2>
-            <p className="text-gray-400">Common problems and how to fix them</p>
-          </div>
-
-          <div className="space-y-4">
-            <div className="bg-gray-900/50 backdrop-blur-sm rounded-lg border border-purple-500/20 p-6">
-              <h3 className="text-white font-semibold mb-2">❌ Bot not responding</h3>
-              <ul className="text-gray-400 space-y-2 text-sm ml-4">
-                <li>• Check that your Gemini API key is correct and active</li>
-                <li>• Verify the bot username matches what you configured</li>
-                <li>• Make sure "Ignore My Own Messages" is enabled</li>
-                <li>• Check browser console (F12) for error messages</li>
-                <li>• Refresh the Free4Talk page after changing settings</li>
+          <div className="faq-grid">
+            <div className="faq-card">
+              <h4>Extension does not load</h4>
+              <ul>
+                <li>Make sure Developer mode is enabled in chrome://extensions</li>
+                <li>Click Load unpacked and select the extracted folder (not the ZIP)</li>
+                <li>Check the extension card for any error messages</li>
               </ul>
             </div>
 
-            <div className="bg-gray-900/50 backdrop-blur-sm rounded-lg border border-purple-500/20 p-6">
-              <h3 className="text-white font-semibold mb-2">❌ Extension won't load</h3>
-              <ul className="text-gray-400 space-y-2 text-sm ml-4">
-                <li>• Ensure Developer Mode is enabled in chrome://extensions</li>
-                <li>• Make sure you extracted the ZIP file completely</li>
-                <li>• Select the correct folder (should contain manifest.json)</li>
-                <li>• Try removing and re-adding the extension</li>
+            <div className="faq-card">
+              <h4>API key invalid or unauthorized</h4>
+              <ul>
+                <li>Verify the correct provider is selected (Gemini)</li>
+                <li>Regenerate the API key and paste it again</li>
+                <li>Ensure your account has access to the chosen model</li>
               </ul>
             </div>
 
-            <div className="bg-gray-900/50 backdrop-blur-sm rounded-lg border border-purple-500/20 p-6">
-              <h3 className="text-white font-semibold mb-2">❌ Premium features not working</h3>
-              <ul className="text-gray-400 space-y-2 text-sm ml-4">
-                <li>• Verify you've activated your license key in the popup</li>
-                <li>• Check that the license is valid and not expired</li>
-                <li>• Ensure you haven't exceeded the 2-device limit</li>
-                <li>• Try deactivating and reactivating the license</li>
+            <div className="faq-card">
+              <h4>Bot not responding in Free4Talk</h4>
+              <ul>
+                <li>Ensure the extension is enabled in the popup</li>
+                <li>Enter your correct Free4Talk username</li>
+                <li>Reload the Free4Talk tab and try again</li>
               </ul>
             </div>
 
-            <div className="bg-gray-900/50 backdrop-blur-sm rounded-lg border border-purple-500/20 p-6">
-              <h3 className="text-white font-semibold mb-2">❌ API quota exceeded</h3>
-              <ul className="text-gray-400 space-y-2 text-sm ml-4">
-                <li>• Gemini free tier has usage limits - wait a few minutes</li>
-                <li>• Consider upgrading to Gemini paid tier for higher limits</li>
-                <li>• Reduce character limit to minimize API usage</li>
+            <div className="faq-card">
+              <h4>Performance or rate limit issues</h4>
+              <ul>
+                <li>Choose a lighter model (e.g., Gemini 2.0 Flash)</li>
+                <li>Reduce the number of authorized users</li>
+                <li>Check your API usage limits</li>
               </ul>
             </div>
           </div>
+        </motion.section>
 
-          <div className="mt-8 bg-blue-500/10 border border-blue-500/30 rounded-lg p-6 text-center">
-            <p className="text-blue-200 mb-4">
-              If you're still having issues, reach out to us!
-            </p>
-            <a
-              href="https://buymeacoffee.com/avataraang"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg hover:shadow-purple-500/50 transition-all"
-            >
-              Get Support
+        {/* CTA Section */}
+        <motion.div
+          className="install-cta"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <h2>Need Help?</h2>
+          <p>If you're still having issues, reach out to us!</p>
+          <div className="cta-buttons">
+            <Link to="/bots/chatbot" className="btn btn-secondary btn-large">
+              Back to Chatbot
+            </Link>
+            <a href="mailto:getsolace.india@gmail.com" className="btn btn-primary btn-large">
+              Contact Support
             </a>
           </div>
         </motion.div>
-      </section>
-
-      {/* Back to Bot Page */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
-        <Link
-          to="/bots/chatbot"
-          className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
-        >
-          <ArrowLeft size={20} />
-          Back to Chatbot Page
-        </Link>
       </div>
     </div>
   );
